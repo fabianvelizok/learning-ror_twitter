@@ -1,0 +1,8 @@
+development:
+  SECRET_KEY_BASE: "run rake secret and paste the token here"
+
+test:
+  SECRET_KEY_BASE: "run rake secret and paste the token here"
+
+production:
+  SECRET_KEY_BASE: "run rake secret and paste the token here"
