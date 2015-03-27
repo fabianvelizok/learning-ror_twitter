@@ -3,7 +3,10 @@ source 'https://rubygems.org'
 ruby '2.1.3'
 
 # Rails
-gem 'rails', '4.1.8'
+gem 'rails', '4.2'
+
+# DB
+gem 'pg'
 
 # Authentication
 gem 'devise'
@@ -22,18 +25,11 @@ gem 'uglifier',        ">= 1.3.0"
 gem 'coffee-rails',    "~> 4.0.0"
 gem 'jquery-rails'
 
-
 # Test Suite
-group :development do
+group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
-  gem 'sqlite3'
 end
-
-# Production
-# group :production do
-#  gem 'pg'
-# end
 
 # Misc
 group :doc do

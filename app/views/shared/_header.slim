@@ -7,7 +7,7 @@ header
       - if user_signed_in?
         ul
           li
-            = link_to current_user.email, user_profile_path(current_user)
+            = link_to current_user.email, "#"
           li
             = link_to 'Edit account', edit_user_registration_path
           li
