@@ -1,19 +1,20 @@
 header
-  .inner-container
-    .left
-      = link_to 'RailsTwitter', root_path
+  nav
+    .inner-container
+      .nav-wrapper
+        = link_to 'RailsTwitter', root_path, class: 'brand-logo'
 
-    .right
-      - if user_signed_in?
-        ul
-          li
-            = link_to current_user.email, "#"
-          li
-            = link_to 'Edit account', edit_user_registration_path
-          li
-            = link_to 'Sign out', destroy_user_session_path, method: :delete
-      - else
-        .login
-          = link_to 'Sign In', new_user_session_path
-          |&nbsp;Or&nbsp;
-          = link_to 'Sign Up', new_user_registration_path
+        ul#nav-mobile.right.hide-on-med-and-down
+
+          - if user_signed_in?
+            li
+              = link_to current_user.email, "#"
+            li
+              = link_to 'Edit account', edit_user_registration_path
+            li
+              = link_to 'Sign out', destroy_user_session_path, method: :delete
+
+          - else
+            = link_to 'Sign In', new_user_session_path
+            |&nbsp;Or&nbsp;
+            = link_to 'Sign Up', new_user_registration_path
