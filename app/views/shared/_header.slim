@@ -2,7 +2,7 @@ header
   - if user_signed_in?
     ul id="dropdown1" class="dropdown-content"
       li
-        = link_to current_user.user_name, "#"
+        = link_to current_user.user_name, user_profile_path(current_user.slug)
       li class="divider"
       li
         = link_to 'Edit account', edit_user_registration_path
