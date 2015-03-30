@@ -1,21 +1,21 @@
 doctype html
 html
-head
-  title Rails Instagram
-  = stylesheet_link_tag    'application', media: 'all'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
-body
-  .container-page
-    - if notice
-      .notice
-        = notice
+  head
+    title Rails Instagram
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  body
+    .container-page
+      - if notice
+        .notice
+          = notice
 
-    -if alert
-      .alert
-        = alert
+      -if alert
+        .alert
+          = alert
 
-    = render partial: 'shared/header'
+      = render partial: 'shared/header'
 
-    .content
-      = yield
+      .content
+        = yield
