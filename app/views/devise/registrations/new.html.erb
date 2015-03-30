@@ -22,6 +22,21 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
+    <div class="field">
+      <%= f.label :user_name %><br />
+      <%= f.text_field :user_name, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <div class="file-field input-field">
+        <input class="file-path validate" type="text" style="margin-left: 135px;"/>
+        <div class="btn">
+          <span>Avatar</span>
+          <%= f.file_field :avatar, autocomplete: "off" %>
+        </div>
+      </div>
+    </div>
+
     <div class="actions">
       <%= f.submit "Sign up", class: 'waves-light btn' %>
     </div>
