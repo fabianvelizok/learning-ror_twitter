@@ -1,12 +1,20 @@
 = form_for(@tweet) do |f|
+  - @tweet.errors.full_messages.each do |message|
+    div
+      = message
+
   .fields
     .field
       = f.label :body
       = f.text_field :body
+
     .field
-      = f.label :image
-      = f.file_field :image
+      .file-field.input-field
+        input.file-path.validate style=("margin-left: 135px;") type="text" /
+        .btn
+          span Image
+          = f.file_field :image
 
   .actions
     .action
-      = f.submit
+      = f.submit nil, class: 'waves-light btn'

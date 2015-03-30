@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   def new
     @tweet = Tweet.new
   end
-  
+
   def create
     @tweet = current_user.tweets.build(tweet_params)
 
@@ -12,8 +12,11 @@ class TweetsController < ApplicationController
       render :new
     end
   end
-  
-  def show; end
+
+  def show
+    @tweet = Tweet.find(params[:id])
+    @author = User.find(@tweet.user_id)
+  end
 
   private
 

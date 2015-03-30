@@ -1,0 +1,9 @@
+.inner-container
+  .tweet
+    h1
+      = @tweet.body
+    .image
+      = image_tag @tweet.image.url(:medium)
+    br
+    = link_to @author.user_name, ''
+

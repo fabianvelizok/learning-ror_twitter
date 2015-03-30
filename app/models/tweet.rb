@@ -5,6 +5,8 @@ class Tweet < ActiveRecord::Base
                         thumb: "40x40#"
                     }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-                      
+  validates :body, presence: true, length: { maximum: 140 }
+
   belongs_to :user
+
 end
