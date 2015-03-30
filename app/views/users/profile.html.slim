@@ -1,0 +1,24 @@
+.l-profile
+  .inner-container
+    .row
+      .col.s4
+        div
+          = image_tag user.avatar.url(:medium), style: 'display: block; width: 100%;'
+        h4
+          = user.user_name
+        br
+        h5 Followed users:
+        |Not implemented yet
+
+        h5 Followers:
+        |Not implemented yet
+
+      .col.s8
+        h1 Tweets (#{tweets.count})
+        - if tweets.count > 0
+          - tweets.each do |tweet|
+            p = tweet.body
+            div = image_tag tweet.image.url(:medium)
+            br
+        - else
+          |There aren't tweets

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:new, :create, :show]
 
+  get ':slug', to: 'users#profile', as: 'user_profile'
+
   root 'home#index'
-  
+
 end
