@@ -5,7 +5,7 @@ Dependencies
 -------
 
  - Ruby 2.1.3
- - Rails 4.1.8
+ - Rails 4.2
 
 Quick start
 -------
