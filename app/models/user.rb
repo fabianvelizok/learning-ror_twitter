@@ -20,4 +20,15 @@ class User < ActiveRecord::Base
 
   has_many :followeds, through: :followings, source: :followed
 
+  def can_follow?(slug_param)
+    slug_by_user   = slug
+    slug_by_params = slug_param
+
+    if slug_by_user == slug_by_params || followeds.all.map(&:slug).include?(slug_by_params)
+      false
+    else
+      true
+    end
+  end
+
 end

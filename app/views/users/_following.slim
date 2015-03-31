@@ -1,1 +1,4 @@
-= button_to 'Follow', followings_path(slug: user.slug), form_class: 'follow'
+- if current_user.can_follow?(params[:slug])
+  = button_to 'Follow', followings_path(slug: user.slug), form_class: 'follow'
+- else
+  |You can't follow him/her
