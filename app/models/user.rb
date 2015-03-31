@@ -10,11 +10,12 @@ class User < ActiveRecord::Base
                         thumb: "40x40#"
                     }
 
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates :user_name, presence: true, uniqueness: { case_sensitive: false }
 
   friendly_id :user_name, use: :slugged
 
   has_many :tweets
+  has_many :followings
 
 end
