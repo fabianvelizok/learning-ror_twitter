@@ -4,14 +4,14 @@ class FollowingsController < ApplicationController
   expose(:user){ User.friendly.find(slug)}
 
   def create
-    following = current_user.followings.build(followed_id: user.id)
-    if following.save
-      redirect_to user_profile_path(slug), notice: 'The following has been created successfully'
-    else
-      redirect_to user_profile_path(slug), alert: 'An unexpected error has occurred'
+    if current_user.can_follow?(slug)
+      following = current_user.followings.build(followed_id: user.id)
+      @success = following.save
     end
   end
 
   def destroy
+    following = current_user.followings.where(followed_id: user.id).first
+    @success = following.destroy
   end
 end

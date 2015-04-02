@@ -7,7 +7,9 @@
         h4
           = user.user_name
 
-        = render 'users/following'
+        - if user_signed_in? && !in_my_profile?
+          #following
+            = render 'users/following', user: user
 
         h5 Followed users:
         |Not implemented yet
