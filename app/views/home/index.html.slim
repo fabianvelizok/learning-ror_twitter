@@ -3,8 +3,12 @@
 
     - if user_signed_in?
       h1 Tweets
-      .collection
-        = render tweets
+
+      - if tweets.count > 0
+        .collection
+          = render tweets
+      - else
+        |There aren't tweets
 
     - else
       = render 'home/welcome'

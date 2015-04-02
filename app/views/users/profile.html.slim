@@ -2,27 +2,34 @@
   .inner-container
     .row
       .col.s4
-        div
-          = image_tag user.avatar.url(:medium), style: 'display: block; width: 100%;'
-        h4
+        div.user-avatar
+          = image_tag user.avatar.url(:small)
+        h2
           = user.user_name
 
         - if user_signed_in? && !in_my_profile?
           #following
             = render 'users/following'
 
-        h5 Followed users:
+        h3 Followed users:
         |Not implemented yet
 
-        h5 Followers:
+        h3 Followers:
         |Not implemented yet
 
       .col.s8
         h1 Tweets (#{tweets.count})
         - if tweets.count > 0
-          - tweets.each do |tweet|
-            p = tweet.body
-            div = image_tag tweet.image.url(:medium)
-            br
+
+          .collection
+            - tweets.each do |tweet|
+              .collection-item
+                = link_to tweet_path(tweet) do
+                  p
+                    = tweet.body
+                    - unless tweet.image.blank?
+                      br
+                      = image_tag tweet.image.url(:medium)
+
         - else
           |There aren't tweets

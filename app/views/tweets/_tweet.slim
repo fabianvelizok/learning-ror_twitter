@@ -4,12 +4,15 @@
 
   = link_to user_profile_path(tweet.user.slug), class: 'title' do
     span = tweet.user.user_name
-  p
-    = tweet.body
-    - unless tweet.image.blank?
-      br
-      = image_tag tweet.image.url(:medium)
 
-  a.secondary-content href="#!"
-    i.mdi-action-grade
+  = link_to tweet_path(tweet) do
+    p
+      = tweet.body
+      - unless tweet.image.blank?
+        br
+        = image_tag tweet.image.url(:medium)
+
+  a.secondary-content.not-implemented href=''
+    i.mdi-action-favorite-outline
+
 
