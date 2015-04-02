@@ -1,2 +1,10 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+.l-home
+  .inner-container
+
+    - if user_signed_in?
+      h1 Tweets
+      .collection
+        = render tweets
+
+    - else
+      = render 'home/welcome'

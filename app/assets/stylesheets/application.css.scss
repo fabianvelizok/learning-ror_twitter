@@ -9,6 +9,11 @@
 @import "modules/inner-container";
 @import "modules/avatar";
 @import "modules/follow";
+@import "modules/collection-item";
+
+@import "modules/modifiers";
 
 //Layouts
+@import "layouts/l-header";
 @import "layouts/l-profile";
+@import "layouts/l-home";

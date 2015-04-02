@@ -1,7 +1,7 @@
 class FollowingsController < ApplicationController
   before_action :authenticate_user!
   expose(:slug){ params[:slug] }
-  expose(:user){ User.friendly.find(slug)}
+  expose(:user){ User.friendly.find(slug) }
 
   def create
     if current_user.can_follow?(slug)

@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  expose(:tweet){ Tweet.find(params[:id]) }
+
   def new
     @tweet = Tweet.new
   end
@@ -7,16 +9,13 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.build(tweet_params)
 
     if @tweet.save
-      redirect_to root_path, notice: 'se creó'
+      redirect_to root_path, notice: 'The tweet has been created successfully'
     else
-      render :new
+      render :new, alert: 'An error has ocurred'
     end
   end
 
-  def show
-    @tweet = Tweet.find(params[:id])
-    @author = User.find(@tweet.user_id)
-  end
+  def show; end
 
   private
 

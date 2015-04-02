@@ -1,0 +1,15 @@
+.collection-item.avatar
+  = link_to user_profile_path(tweet.user.slug), class: 'circle' do
+    = image_tag tweet.user.avatar(:thumb)
+
+  = link_to user_profile_path(tweet.user.slug), class: 'title' do
+    span = tweet.user.user_name
+  p
+    = tweet.body
+    - unless tweet.image.blank?
+      br
+      = image_tag tweet.image.url(:medium)
+
+  a.secondary-content href="#!"
+    i.mdi-action-grade
+

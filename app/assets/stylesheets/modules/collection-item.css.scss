@@ -1,0 +1,15 @@
+.collection-item {
+  height: auto !important;
+  width: 100%;
+  border-radius: 0;
+
+  .title { font-weight: 500 }//title
+
+  p img { margin-top: 10px; }//p img
+
+  .circle img {
+    height: 100%;
+    width: 100%;
+  }//.circle img
+
+}//.collection-item

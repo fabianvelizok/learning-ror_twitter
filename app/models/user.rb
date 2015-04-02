@@ -20,6 +20,11 @@ class User < ActiveRecord::Base
 
   has_many :followeds, through: :followings, source: :followed
 
+  # This method is used in photos#index to show photos of the followed users and mine
+  def followeds_and_me
+    followeds + [id]
+  end
+
   def can_follow?(slug_param)
     slug_by_user   = slug
     slug_by_params = slug_param

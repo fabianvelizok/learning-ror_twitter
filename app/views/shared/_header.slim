@@ -1,4 +1,4 @@
-header
+header.l-header
   - if user_signed_in?
     ul id="dropdown1" class="dropdown-content"
       li
@@ -10,7 +10,7 @@ header
       li
         = link_to 'Sign out', destroy_user_session_path, method: :delete
 
-  nav
+  nav.navigation
     .inner-container
       .nav-wrapper style="overflow: hidden"
         = link_to 'RailsTwitter', root_path, class: 'brand-logo'
