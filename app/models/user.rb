@@ -18,8 +18,19 @@ class User < ActiveRecord::Base
 
   has_many :tweets
   has_many :followings
-
   has_many :followed_users, through: :followings, source: :followed
+
+  has_many :followers, class_name: 'Following', foreign_key: 'followed_id'
+  has_many :followers_users, through: :followers, source: :user
+
+
+  def followed_users_count
+    followed_users.count
+  end
+
+  def followers_users_count
+    followers_users.count
+  end
 
   # This method is used in home#index to show the followed users' tweets and my tweets
   def followed_users_and_me

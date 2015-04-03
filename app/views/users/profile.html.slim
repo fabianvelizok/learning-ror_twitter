@@ -16,8 +16,10 @@
           h3 Followed users:
           span.decorate = followed_users_count
 
-        h3 Followers:
-        |Not implemented yet
+        = link_to followers_users_path do
+
+          h3 Followers users:
+          span.decorate = followers_users_count
 
       .col.s8
         h1 Tweets (#{tweets.count})
