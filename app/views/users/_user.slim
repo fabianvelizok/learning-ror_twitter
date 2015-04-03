@@ -1,0 +1,9 @@
+.collection-item.avatar
+  = link_to user_profile_path(user.slug), class: 'circle' do
+    = image_tag user.avatar(:thumb)
+
+  = link_to user_profile_path(user.slug), class: 'title' do
+    span = user.user_name
+
+    p
+      = user.email

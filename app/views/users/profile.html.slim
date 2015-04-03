@@ -11,8 +11,10 @@
           #following
             = render 'users/following'
 
-        h3 Followed users:
-        |Not implemented yet
+        = link_to followed_users_path do
+
+          h3 Followed users:
+          span.decorate = followed_users_count
 
         h3 Followers:
         |Not implemented yet

@@ -19,18 +19,18 @@ class User < ActiveRecord::Base
   has_many :tweets
   has_many :followings
 
-  has_many :followeds, through: :followings, source: :followed
+  has_many :followed_users, through: :followings, source: :followed
 
-  # This method is used in photos#index to show photos of the followed users and mine
-  def followeds_and_me
-    followeds + [id]
+  # This method is used in home#index to show the followed users' tweets and my tweets
+  def followed_users_and_me
+    followed_users + [id]
   end
 
   def can_follow?(slug_param)
     slug_by_user   = slug
     slug_by_params = slug_param
 
-    if slug_by_user == slug_by_params || followeds.all.map(&:slug).include?(slug_by_params)
+    if slug_by_user == slug_by_params || followed_users.all.map(&:slug).include?(slug_by_params)
       false
     else
       true

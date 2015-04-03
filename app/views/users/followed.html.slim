@@ -1,0 +1,6 @@
+.inner-container
+  h1 Followed users
+
+  .collection
+    - followed_users.each do |followed|
+      = render partial: 'user', locals: { user: followed }
