@@ -1,4 +1,4 @@
-Rails Instagram
+Rails Twitter
 ===================
 
 Dependencies
