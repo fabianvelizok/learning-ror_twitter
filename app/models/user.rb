@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   has_many :followers, class_name: 'Following', foreign_key: 'followed_id'
   has_many :followers_users, through: :followers, source: :user
 
+  has_many :likes
+
 
   def followed_users_count
     followed_users.count
@@ -35,6 +37,14 @@ class User < ActiveRecord::Base
   # This method is used in home#index to show the followed users' tweets and my tweets
   def followed_users_and_me
     followed_users + [id]
+  end
+
+  def can_give_like?(tweet_id)
+    if likes.where(tweet_id: tweet_id).first
+      false
+    else
+      true
+    end
   end
 
   def can_follow?(slug_param)

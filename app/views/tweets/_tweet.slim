@@ -12,7 +12,9 @@
         br
         = image_tag tweet.image.url(:medium)
 
-  a.secondary-content.not-implemented href=''
-    i.mdi-action-favorite-outline
-
+  - if current_user.can_give_like?(tweet.id)
+    = button_to likes_path(tweet: tweet), form_class: 'secondary-content like' do
+      i.mdi-action-favorite-outline
+  - else
+    |You have already given like on this tweet
 
