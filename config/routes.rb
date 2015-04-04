@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :tweets, only: [:new, :create, :show]
+  resources :tweets, only: [:new, :create, :show] do
+    get 'likes', on: :member
+  end
+
   resources :followings, only: [:create, :destroy], param: :slug
   resources :likes, only: [:create, :destroy]
 

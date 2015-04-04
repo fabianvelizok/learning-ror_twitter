@@ -12,4 +12,10 @@
     width: 100%;
   }//.circle img
 
+  .secondary-content {
+    a, form { display: inline-block; vertical-align: top; }
+
+    a { margin-right: 10px; }
+  }
+
 }//.collection-item

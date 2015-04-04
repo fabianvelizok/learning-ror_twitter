@@ -8,8 +8,14 @@ class Tweet < ActiveRecord::Base
   validates :body, presence: true, length: { maximum: 140 }
 
   belongs_to :user
+
   has_many :likes
+  has_many :users_like, through: :likes, source: :user
 
   scope :latest, -> { order(created_at: :desc) }
+
+  def users_like_count
+    users_like.count
+  end
 
 end

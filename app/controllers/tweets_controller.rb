@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
-  expose(:tweet){ Tweet.find(params[:id]) }
+  expose(:tweet)        { Tweet.find(params[:id]) }
+  expose(:users_like)   { tweet.users_like }
 
   def new
     @tweet = Tweet.new
@@ -16,6 +17,7 @@ class TweetsController < ApplicationController
   end
 
   def show; end
+  def likes; end
 
   private
 
