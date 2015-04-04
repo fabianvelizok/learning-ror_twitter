@@ -12,9 +12,11 @@
         br
         = image_tag tweet.image.url(:medium)
 
-  - if current_user.can_give_like?(tweet.id)
-    = button_to likes_path(tweet: tweet), form_class: 'secondary-content like' do
-      i.mdi-action-favorite-outline
-  - else
-    |You have already given like on this tweet
+  - if user_signed_in?
+    - if current_user.can_give_like?(tweet.id)
+      = button_to likes_path(id: tweet.id), form_class: 'secondary-content like' do
+        i.small.mdi-action-favorite-outline
+    - else
+      = button_to like_path(tweet), method: :delete, form_class: 'secondary-content like' do
+        i.small.mdi-action-favorite
 
