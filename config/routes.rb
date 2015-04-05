@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :followings, only: [:create, :destroy], param: :slug
   resources :likes, only: [:create, :destroy]
+  resources :comments, only: :create
 
   get ':slug',           to: 'users#profile',     as: 'user_profile'
   get ':slug/followed',  to: 'users#followed',    as: 'followed_users'

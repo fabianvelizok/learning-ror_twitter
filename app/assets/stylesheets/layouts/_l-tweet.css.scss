@@ -1,0 +1,5 @@
+.l-tweet {
+  &[role="show"] .new_comment input[type="submit"]{
+    @extend .waves-light, .btn;
+  }
+}

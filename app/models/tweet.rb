@@ -12,6 +12,8 @@ class Tweet < ActiveRecord::Base
   has_many :likes
   has_many :users_like, through: :likes, source: :user
 
+  has_many :comments
+
   scope :latest, -> { order(created_at: :desc) }
 
   def users_like_count

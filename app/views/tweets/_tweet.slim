@@ -12,14 +12,23 @@
         br
         = image_tag tweet.image.url(:medium)
 
-  - if user_signed_in?
-    .secondary-content
-      = link_to tweet.users_like_count, likes_tweet_path(tweet), class: 'decorate'
+  .secondary-content
+    - if user_signed_in?
+      .likes style="margin-bottom: 5px"
+        = link_to tweet.users_like_count, likes_tweet_path(tweet), class: 'decorate'
 
-      - if current_user.can_give_like?(tweet.id)
-        = button_to likes_path(id: tweet.id), form_class: 'like' do
-          i.small.mdi-action-favorite-outline
-      - else
-        = button_to like_path(tweet), method: :delete, form_class: 'like' do
-          i.small.mdi-action-favorite
+        - if current_user.can_give_like?(tweet.id)
+          = button_to likes_path(id: tweet.id), form_class: 'like' do
+            i.small.mdi-action-favorite-outline
+        - else
+          = button_to like_path(tweet), method: :delete, form_class: 'like' do
+            i.small.mdi-action-favorite
+
+    .comments
+      = link_to tweet_path(tweet), class: 'decorate' do
+        span
+          = tweet.comments.count
+        i.small.mdi-communication-comment
+
+
 

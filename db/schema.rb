@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404010017) do
+ActiveRecord::Schema.define(version: 20150405030449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "tweet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["tweet_id"], name: "index_comments_on_tweet_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "followings", force: :cascade do |t|
     t.integer  "user_id"
@@ -87,6 +98,8 @@ ActiveRecord::Schema.define(version: 20150404010017) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
   add_foreign_key "followings", "users"
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"

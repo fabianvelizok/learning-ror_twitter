@@ -1,0 +1,18 @@
+.comment {
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 72px;
+  position: relative;
+  min-height: 50px;
+  margin: 20px 0px;
+  padding-bottom: 10px;
+
+  .avatar {
+    position: absolute;
+    left: 0;
+    top: -5px;
+    overflow: hidden;
+    display: block;
+    margin-top: 0;
+  }//.avatar
+
+}//.comment

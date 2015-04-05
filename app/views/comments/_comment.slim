@@ -1,0 +1,4 @@
+.comment
+  = link_to user_profile_path(comment.user.slug), class: 'avatar' do
+    = image_tag comment.user.avatar.url(:thumb)
+  span = comment.body

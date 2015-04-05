@@ -1,4 +1,36 @@
-.inner-container
-  h1 Tweet ##{tweet.id}
-  .collection
-    = render 'tweet'
+.l-tweet[role="show"]
+  .inner-container
+    h1 Tweet ##{tweet.id}
+    .collection
+      = render 'tweet'
+
+    br
+    h3 Comments (#{comments_count})
+    - if comments_count > 0
+      .comments
+        = render comments
+      br
+    - else
+      |This tweet hasn't comments
+      br
+    br
+
+    - if user_signed_in?
+      = form_for comment, url: comments_path(id: tweet.id) do |f|
+        .fields
+          .field
+            .row
+              .input-field.col.s12
+                = f.label :body, 'Give us your comment'
+                = f.text_area :body, class: 'materialize-textarea'
+        .actions
+          .action
+            = f.submit
+
+    - else
+      |You must logged to comment.&nbsp;
+      = link_to 'Login', new_user_session_path
+      |&nbsp;Or&nbsp;
+      = link_to 'Register', new_user_registration_path
+      br
+      br

@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :followers_users, through: :followers, source: :user
 
   has_many :likes
+  has_many :comments
 
 
   def followed_users_count

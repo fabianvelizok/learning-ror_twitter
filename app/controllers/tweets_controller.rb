@@ -1,6 +1,9 @@
 class TweetsController < ApplicationController
-  expose(:tweet)        { Tweet.find(params[:id]) }
-  expose(:users_like)   { tweet.users_like }
+  expose(:tweet)         { Tweet.find(params[:id]) }
+  expose(:users_like)    { tweet.users_like }
+  expose(:comment)       { Comment.new }
+  expose(:comments)      { tweet.comments.includes(:user).all }
+  expose(:comments_count){ tweet.comments.count }
 
   def new
     @tweet = Tweet.new
