@@ -1,4 +1,4 @@
-- if current_user.can_follow?(slug)
+- if current_user.can_follow?(user)
   = button_to 'Follow', followings_path(slug: user.slug), remote: true, form_class: 'follow'
 - else
   = button_to 'Unfollow', following_path(user.slug), method: :delete, remote: true, form_class: 'follow'

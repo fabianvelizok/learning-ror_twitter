@@ -48,11 +48,11 @@ class User < ActiveRecord::Base
     end
   end
 
-  def can_follow?(slug_param)
-    slug_by_user   = slug
-    slug_by_params = slug_param
+  def can_follow?(user_param)
+    user          = self
+    user_by_param = user_param
 
-    if slug_by_user == slug_by_params || followed_users.all.map(&:slug).include?(slug_by_params)
+    if user == user_by_param || followed_users.all.include?(user_by_param)
       false
     else
       true

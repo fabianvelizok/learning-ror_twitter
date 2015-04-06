@@ -15,11 +15,7 @@ class UsersController < ApplicationController
   def followers; end
 
   def in_my_profile?
-    if current_user == user
-      true
-    else
-      false
-    end
+    current_user == user
   end
 
   helper_method :in_my_profile?

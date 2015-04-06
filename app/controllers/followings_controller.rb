@@ -4,14 +4,14 @@ class FollowingsController < ApplicationController
   expose(:user){ User.friendly.find(slug) }
 
   def create
-    if current_user.can_follow?(slug)
+    if current_user.can_follow?(user)
       following = current_user.followings.build(followed_id: user.id)
-      @success = following.save
+      @success  = following.save
     end
   end
 
   def destroy
     following = current_user.followings.where(followed_id: user.id).first
-    @success = following.destroy
+    @success  = following.destroy
   end
 end
