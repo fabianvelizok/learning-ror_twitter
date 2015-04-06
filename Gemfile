@@ -13,18 +13,19 @@ gem 'devise'
 
 # Plugins
 gem 'figaro'
-gem 'paperclip',       '~> 4.2'
+gem 'paperclip',        '~> 4.2'
 gem 'decent_exposure'
-gem 'friendly_id',     '~> 5.1.0'
+gem 'friendly_id',      '~> 5.1.0'
 
 # Frontend
-gem 'sass-rails',      '~> 5.0'
+gem 'sass-rails',       '~> 5.0'
 gem 'bourbon'
 gem 'slim-rails'
-gem 'uglifier',        '>= 1.3.0'
-gem 'coffee-rails',    '~> 4.0.0'
+gem 'uglifier',         '>= 1.3.0'
+gem 'coffee-rails',     '~> 4.0.0'
 gem 'jquery-rails'
-gem 'materialize-sass'
+gem 'materialize-sass', '0.95.3.4'
+gem 'aws-sdk',          '< 2'
 
 # Development and Test tools
 group :development, :test do
@@ -34,7 +35,6 @@ end
 
 # Production tools
 group :production do
-  gem 'aws-sdk'
 end
 
 # Misc
