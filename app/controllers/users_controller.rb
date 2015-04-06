@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def followers; end
 
   def in_my_profile?
-    if current_user.slug == params[:slug]
+    if current_user == user
       true
     else
       false
