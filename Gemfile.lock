@@ -37,6 +37,14 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    aws-sdk (2.0.34)
+      aws-sdk-resources (= 2.0.34)
+    aws-sdk-core (2.0.34)
+      builder (~> 3.0)
+      jmespath (~> 1.0)
+      multi_json (~> 1.0)
+    aws-sdk-resources (2.0.34)
+      aws-sdk-core (= 2.0.34)
     bcrypt (3.1.10)
     bourbon (4.2.1)
       sass (~> 3.4)
@@ -78,6 +86,8 @@ GEM
       activesupport (>= 4.1.0)
     hike (1.2.3)
     i18n (0.7.0)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -178,6 +188,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   bourbon
   coffee-rails (~> 4.0.0)
   decent_exposure
